@@ -1248,6 +1248,7 @@ func != (lhs: NSNumber, rhs: NSNumber) -> Bool {
     return !(lhs == rhs)
 }
 
+#if !os(Linux)
 func < (lhs: NSNumber, rhs: NSNumber) -> Bool {
 
     switch (lhs.isBool, rhs.isBool) {
@@ -1256,6 +1257,7 @@ func < (lhs: NSNumber, rhs: NSNumber) -> Bool {
     default:            return lhs.compare(rhs) == .orderedAscending
     }
 }
+#endif
 
 func > (lhs: NSNumber, rhs: NSNumber) -> Bool {
 
